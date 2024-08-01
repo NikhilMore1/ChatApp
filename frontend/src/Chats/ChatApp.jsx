@@ -5,7 +5,7 @@ import MessageList from './MessageList';
 import Feedback from './Feedback';
 import NameInput from './NameInput';
 
-const socket = io('http://localhost:5000'); // Connect to your backend URL
+const socket = io('https://chatapp-5nrl.onrender.com'); // Connect to your backend URL
 
 const Chat = () => {
   const [name, setName] = useState('anonymous');
