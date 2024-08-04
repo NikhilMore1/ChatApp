@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import './MainPage.css';
-import UserName from './UserName';
-import { Link } from 'react-router-dom';
+import NameInput from '../Chats/NameInput';
 const MainPage = () => {
     const [name, setName] = useState('anonymous');
   return (
@@ -15,7 +14,7 @@ const MainPage = () => {
         <div className='row container-fluid text-center '>
             <div className='text-center mt-2  col-md-6  col-sm-6 justify-center row1 '>
                <label htmlFor="label">Enter Your Name:</label>
-               <UserName name={name} setName={setName}/>
+               <NameInput name={name} setName={setName} />
                
             </div>
            

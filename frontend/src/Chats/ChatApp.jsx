@@ -4,6 +4,7 @@ import MessageForm from './MessageForm';
 import MessageList from './MessageList';
 import Feedback from './Feedback';
 import NameInput from './NameInput';
+import MainPage from '../Entrys/MainPage';
 
 const socket = io('https://chatapp-5nrl.onrender.com'); // Connect to your backend URL
 
@@ -51,7 +52,7 @@ const Chat = () => {
 
   return (
     <div className="chat">
-      <NameInput name={name} setName={setName} />
+     <MainPage/>
       <MessageList messages={messages} />
       <Feedback feedback={feedback} />
       <MessageForm sendMessage={sendMessage} sendFeedback={sendFeedback} name={name} />
