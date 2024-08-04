@@ -63,11 +63,13 @@ socket.on('feedback', (data) => {
 function scrollToBottom() {
     messageContainer.scrollTo(0, messageContainer.scrollHeight);
 }
-
-messageInput.addEventListener('keypress', (e) => {
+const emitTypingFeedback = () => {
     socket.emit('feedback', {
-        feedback: `${nameInput.value} is typing...`
+      feedback: `${nameInput.value || 'A user'} is typing...`
     });
+  };
+messageInput.addEventListener('input', (e) => {
+    emitTypingFeedback();
 
     clearTimeout(typingTimeout);
     typingTimeout = setTimeout(() => {
