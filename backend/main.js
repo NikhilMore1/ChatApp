@@ -64,7 +64,7 @@ function scrollToBottom() {
     messageContainer.scrollTo(0, messageContainer.scrollHeight);
 }
 
-messageInput.addEventListener('input', (e) => {
+messageInput.addEventListener('click', (e) => {
     socket.emit('feedback', {
         feedback: `${nameInput.value} is typing...`
     });
