@@ -7,12 +7,7 @@ function App() {
 
   return (
  <div>
-<BrowserRouter>
-<Routes>
-  <Route path="/" element={<MainPage/>}/>
-  <Route path="Home" element={<Home/>}/>
-</Routes>
-</BrowserRouter>
+ <Home/>
  </div>
   )
 }
