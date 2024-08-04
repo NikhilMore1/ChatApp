@@ -1,0 +1,70 @@
+.body{
+    background: radial-gradient(circle, rgba(255, 192, 203, 0.3), rgba(0, 191, 255, 0.3), rgba(144, 238, 144, 0.3), rgba(255, 160, 122, 0.3));
+    height: 100vh;
+}
+.cols{
+    color: violet;
+    width: 50%;
+    margin-left: auto;
+    border: 1px solid black;
+    border-radius: 30px;
+    margin-right: auto;
+}
+
+
+
+.row1 {
+    position: relative;
+    display: inline-block;
+    background-color: wheat;
+    transition: color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    height: 60vh;
+    width: 50%;
+    justify-content: center;
+    margin: auto;
+    border: 1px solid black;
+    border-radius: 20px;
+    animation: animate infinite 2s;
+}
+
+.row1::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, rgba(255, 192, 203, 0.3), rgba(0, 191, 255, 0.3), rgba(144, 238, 144, 0.3), rgba(255, 160, 122, 0.3));
+    transition: opacity 0.4s, transform 0.4s;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.row1:hover::before {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.row1:hover {
+    box-shadow: 0 0 30px rgb(36, 185, 218);
+}
+
+@keyframes animate{
+    0%{
+        box-shadow: 1px 2px 3px  aqua;
+    }
+    25%{
+        box-shadow: 3px 4px 3px  rgb(171, 217, 217);
+    }
+    50%{
+        box-shadow: 4px 6px 3px  rgb(71, 149, 149);
+    }
+    75%{
+        box-shadow: 5px 8px 3px  rgb(2, 73, 73);
+    }
+    100%{
+        box-shadow: 6px 10px 3px  aqua;
+    }
+}

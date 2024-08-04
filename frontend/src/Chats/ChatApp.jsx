@@ -3,12 +3,12 @@ import { io } from 'socket.io-client';
 import MessageForm from './MessageForm';
 import MessageList from './MessageList';
 import Feedback from './Feedback';
-import NameInput from './NameInput';
+import UserName from '../Entrys/UserName';
 
 const socket = io('https://chatapp-5nrl.onrender.com'); // Connect to your backend URL
 
 const Chat = () => {
-  const [name, setName] = useState('anonymous');
+ 
   const [messages, setMessages] = useState([]);
   const [clientsTotal, setClientsTotal] = useState(0);
   const [feedback, setFeedback] = useState('');
@@ -51,7 +51,7 @@ const Chat = () => {
 
   return (
     <div className="chat">
-      <NameInput name={name} setName={setName} />
+      
       <MessageList messages={messages} />
       <Feedback feedback={feedback} />
       <MessageForm sendMessage={sendMessage} sendFeedback={sendFeedback} name={name} />
