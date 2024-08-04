@@ -7,7 +7,12 @@ function App() {
 
   return (
  <div>
- <Home/>
+<BrowserRouter>
+<Routes>
+  <Route path="/" element={<MainPage/>}/>
+  <Route path="Home" element={<Home/>}/>
+</Routes>
+</BrowserRouter>
  </div>
   )
 }
