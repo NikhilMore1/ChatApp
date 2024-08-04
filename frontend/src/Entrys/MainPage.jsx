@@ -16,7 +16,7 @@ const MainPage = () => {
             <div className='text-center mt-2  col-md-6  col-sm-6 justify-center row1 '>
                <label htmlFor="label">Enter Your Name:</label>
                <UserName name={name} setName={setName}/>
-               <Link to="/Home">Send</Link>
+               
             </div>
            
         </div>
