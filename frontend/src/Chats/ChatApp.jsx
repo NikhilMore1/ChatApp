@@ -3,7 +3,7 @@ import { io } from 'socket.io-client';
 import MessageForm from './MessageForm';
 import MessageList from './MessageList';
 import Feedback from './Feedback';
-import UserName from '../Entrys/UserName';
+import MainPage from '../Entrys/MainPage';
 
 const socket = io('https://chatapp-5nrl.onrender.com'); // Connect to your backend URL
 
@@ -51,7 +51,7 @@ const Chat = () => {
 
   return (
     <div className="chat">
-      
+      <MainPage/>
       <MessageList messages={messages} />
       <Feedback feedback={feedback} />
       <MessageForm sendMessage={sendMessage} sendFeedback={sendFeedback} name={name} />
