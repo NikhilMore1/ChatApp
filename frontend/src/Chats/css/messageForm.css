@@ -1,0 +1,84 @@
+.chat{
+  width: 100vw;
+}
+.container-fluid {
+    position: relative;
+    height: 90vh;
+    
+  }
+
+  .message-form-container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 10px; /* Optional: padding around the form */
+    display: flex;
+    justify-content: center;
+  }
+  .message-form {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+  }
+  
+  .message-input {
+    width: 100%;
+    height: 50px;
+    border: 2px solid black;
+    border-radius: 10px;
+
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  
+  .send-button {
+    height: 50px;
+    width: 70px;
+    background-color: rgb(93, 93, 235);
+    border: 1px solid blue;
+    border-radius: 10px;
+    margin-left: 5px;
+    transition: 1s;
+  }
+  .send-button:hover{
+    background-color: rgb(26, 26, 231);
+  }
+  /* Base styles for messages */
+.message-item {
+  list-style: none;
+  margin: 10px 0;
+  padding: 10px;
+  max-width: 60%;
+  border-radius: 15px;
+  font-family: Arial, sans-serif;
+}
+
+/* Message from other users (left-aligned) */
+.message-left {
+  background-color: #f1f1f1;
+  align-self: flex-start;
+  border-radius: 15px 15px 15px 0;
+  text-align: left;
+}
+
+/* Message from the current user (right-aligned) */
+.message-right {
+  background-color: #007bff;
+  color: white;
+  align-self: flex-end;
+  border-radius: 15px 15px 0 15px;
+  text-align: right;
+}
+
+/* Styling the message content */
+.message-content {
+  margin: 0;
+  word-wrap: break-word;
+}
+
+/* Ensures the messages align to start/end correctly */
+ul {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}

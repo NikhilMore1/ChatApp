@@ -15,7 +15,7 @@ const server = app.listen(5000, () => {
 
 const io = require('socket.io')(server, {
     cors: {
-        origin: 'https://chat-app-gules-two.vercel.app', // Replace with your frontend URL
+        origin: 'http://localhost:5173', // Replace with your frontend URL
         methods: ['GET', 'POST']
     }
 });

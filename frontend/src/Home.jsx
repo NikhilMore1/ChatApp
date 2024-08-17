@@ -1,9 +1,10 @@
 import React from 'react'
-import Chat from './Chats/ChatApp'
+import WelcomePage from './Entrys/WelcomePage'
+
 const Home = () => {
   return (
     <div>
-        <Chat/>
+        <WelcomePage/>
     </div>
   )
 }

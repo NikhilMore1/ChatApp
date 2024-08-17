@@ -4,8 +4,10 @@ import MessageForm from './MessageForm';
 import MessageList from './MessageList';
 import Feedback from './Feedback';
 import NameInput from './NameInput';
-
-const socket = io('https://chatapp-5nrl.onrender.com'); // Connect to your backend URL
+import './css/messageForm.css';
+import './css/chatPage.css';
+import MessageItem from './MessageItem';
+const socket = io('http://localhost:5000/'); // Connect to your backend URL
 
 const Chat = () => {
   const [name, setName] = useState('anonymous');
@@ -51,11 +53,20 @@ const Chat = () => {
 
   return (
     <div className="chat">
-      <NameInput name={name} setName={setName} />
+      <div className="row">
+        {/* <div className="col">
+        <NameInput name={name} setName={setName} />
+        </div> */}
+        <div className="col" style={{textAlign:'center'}}>
+        <h3 className="clients-total">Total users: {clientsTotal}</h3>
+        </div>
+      </div>
+      
+     
       <MessageList messages={messages} />
       <Feedback feedback={feedback} />
       <MessageForm sendMessage={sendMessage} sendFeedback={sendFeedback} name={name} />
-      <h3 className="clients-total">Total users: {clientsTotal}</h3>
+
     </div>
   );
 };

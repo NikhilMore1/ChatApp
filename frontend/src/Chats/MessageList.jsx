@@ -6,7 +6,7 @@ const MessageList = ({ messages }) => {
     <ul id="message-container" className="message-container">
       {messages.map((message, index) => (
         <MessageItem key={index} message={message} />
-      ))}
+      ))} 
     </ul>
   );
 };
