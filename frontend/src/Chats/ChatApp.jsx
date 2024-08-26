@@ -4,8 +4,8 @@ import MessageForm from './MessageForm';
 import MessageList from './MessageList';
 import Feedback from './Feedback';
 import NameInput from './NameInput';
-import './css/messageForm.css';
-import './css/chatPage.css';
+import './messageForm.css';
+import './chatPage.css';
 import MessageItem from './MessageItem';
 const socket = io('http://localhost:5000/'); // Connect to your backend URL
 
