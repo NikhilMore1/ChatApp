@@ -4,6 +4,7 @@ import './WelcomePage.css';
 import {Link} from 'react-router-dom';
 const WelcomePage = () => {
   return (
+    <div className="bodys">
     <div className="welcome-container">
       <div className="Heading">
         <p>Live Consultation System</p>
@@ -32,6 +33,7 @@ const WelcomePage = () => {
         <br />
         <button className="submit-btn"><Link className='link-btn' to="/ChatApp">Submit</Link></button>
       </div>
+    </div>
     </div>
   );
 };

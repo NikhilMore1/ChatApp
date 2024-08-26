@@ -1,5 +1,5 @@
 import React from 'react';
-import './messageForm.css';
+import './MessageForm.css';
 const MessageItem = ({ message }) => {
   return (
     <li className={message.isOwnMessage ? 'message-item message-right' : 'message-item message-left'}>
