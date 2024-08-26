@@ -44,41 +44,42 @@
     background-color: rgb(26, 26, 231);
   }
   /* Base styles for messages */
-.message-item {
-  list-style: none;
-  margin: 10px 0;
-  padding: 10px;
-  max-width: 60%;
-  border-radius: 15px;
-  font-family: Arial, sans-serif;
-}
-
-/* Message from other users (left-aligned) */
-.message-left {
-  background-color: #f1f1f1;
-  align-self: flex-start;
-  border-radius: 15px 15px 15px 0;
-  text-align: left;
-}
-
-/* Message from the current user (right-aligned) */
-.message-right {
-  background-color: #007bff;
-  color: white;
-  align-self: flex-end;
-  border-radius: 15px 15px 0 15px;
-  text-align: right;
-}
-
-/* Styling the message content */
-.message-content {
-  margin: 0;
-  word-wrap: break-word;
-}
-
-/* Ensures the messages align to start/end correctly */
-ul {
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-}
+  .message-item {
+    list-style: none;
+    margin: 10px 0;
+    padding: 10px;
+    max-width: 60%;
+    border-radius: 15px;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Message from other users (left-aligned) */
+  .message-left {
+    background-color: #f1f1f1;
+    align-self: flex-start;
+    border-radius: 15px 15px 15px 0;
+    text-align: left;
+  }
+  
+  /* Message from the current user (right-aligned) */
+  .message-right {
+    background-color: #007bff;
+    color: white;
+    align-self: flex-end;
+    border-radius: 15px 15px 0 15px;
+    text-align: right;
+  }
+  
+  /* Styling the message content */
+  .message-content {
+    margin: 0;
+    word-wrap: break-word;
+  }
+  
+  /* Ensures the messages align to start/end correctly */
+  ul {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  

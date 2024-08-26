@@ -4,6 +4,23 @@
     height: 100vh;
   }
   
+
+  .bodys1 {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(34, 60, 87);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  
+  .bodys1 {
+    /* width: 100%;
+    height: 100vh; 
+    padding: 20px; */
+  }
+  
   /* Left side (30%) */
   .chat-sidebar {
     width: 30%;
@@ -72,6 +89,7 @@
     align-self: flex-end;
     border-radius: 15px 15px 0 15px;
     text-align: right;
+    margin-right: 1rem;
   }
   
   /* Ensures messages align correctly */
@@ -102,4 +120,17 @@
   
   .send-button:hover {
     background-color: rgb(26, 26, 231);
+  }
+  .message-form {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(87, 163, 225);
+    border-top: 1px solid #ccc;
+  }
+  .feedback {
+    margin-bottom: 10px;
+    color: white;
   }
