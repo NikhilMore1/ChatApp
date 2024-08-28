@@ -4,6 +4,8 @@ import './App.css';
 import Home from "./Home";
 import MainPage from "./Entrys/MainPage";
 import MessageItem from "./Chats/MessageItem";
+import Users from "./Pages/Users";
+import Chat from "./Chats/ChatApp";
 function App() {
 
   return (
@@ -11,7 +13,8 @@ function App() {
 <BrowserRouter>
 <Routes>
   <Route path="/" element={<Home/>}/>
-  <Route path="/ChatApp" element={<ChatApp/>}/>
+  <Route path="/ChatApp/:recipientId" element={<Chat />} />
+  <Route path="/Users" element={<Users/>}/>
 </Routes>
 </BrowserRouter>
  </div>

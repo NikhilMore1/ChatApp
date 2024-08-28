@@ -1,17 +1,44 @@
 import React, { useState } from 'react';
 import './WelcomePage.css';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
 
 const WelcomePage = () => {
-  // Using useState to manage input value
-  const [name, setName] = useState('');
+  const [UserName, setUserName] = useState('');
+  const [Name, setName] = useState({ name: '' });
+  const navigate = useNavigate(); // Initialize useNavigate
 
-  const handleInputChange = (e) => {
-    setName(e.target.value);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUserName(value);
+    setName({
+      ...Name,
+      [name]: value,
+    });
   };
 
-  const handleSubmit = () => {
-    localStorage.setItem("name", name);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    localStorage.setItem('name', UserName);
+    const Datas = new FormData();
+    Datas.append('name', Name.name);
+
+    try {
+      const response = await fetch('http://localhost:5000/api/saveName', {
+        method: 'POST',
+        body: Datas,
+      });
+      const result = await response.json();
+      if (response.ok) {
+        alert('Name Registered Successfully');
+        setName({ name: '' });
+        navigate('/Users'); // Redirect to Users page after successful registration
+      } else {
+        alert('Error occurred: ' + result.error);
+      }
+    } catch (error) {
+      alert('Internal Error occurred during Registration');
+      console.log(error);
+    }
   };
 
   return (
@@ -30,23 +57,27 @@ const WelcomePage = () => {
         </div>
         <hr />
         <div className="form-container">
-          <h1>Hello</h1>
-          <label htmlFor="name" className="mt-5" style={{ fontSize: '20px' }}>
-            Enter Your Name
-          </label>
-          <br />
-          <input
-            id="name"
-            type="text"
-            placeholder="e.g Nikhil More"
-            className="input-box"
-            value={name}
-            onChange={handleInputChange} // Updating state on input change
-          />
-          <br />
-          <button className="submit-btn" onClick={handleSubmit}>
-            <Link className="link-btn" to="/ChatApp">Submit</Link>
-          </button>
+          <form onSubmit={handleSubmit}>
+            <h1>Hello</h1>
+            <label htmlFor="name" className="mt-5" style={{ fontSize: '20px' }}>
+              Enter Your Name
+            </label>
+            <br />
+            <input
+              id="name"
+              name="name"
+              type="text"
+              placeholder="e.g Nikhil More"
+              className="input-box"
+              value={Name.name}
+              onChange={handleChange}
+              required
+            />
+            <br />
+            <button className="submit-btn" type="submit">
+              Submit
+            </button>
+          </form>
         </div>
       </div>
     </div>

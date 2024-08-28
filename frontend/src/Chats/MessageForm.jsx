@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-// import './MessageForm.css';
+import './MessageForm.css';
+import { useParams } from 'react-router-dom';
 const MessageForm = ({ sendMessage, sendFeedback, name }) => {
   const [message, setMessage] = useState('');
-
+  const NameUser = useParams();
   const handleSubmit = (e) => {
     e.preventDefault();
     if (message) {
@@ -12,7 +13,8 @@ const MessageForm = ({ sendMessage, sendFeedback, name }) => {
   };
 
   const handleTyping = () => {
-    sendFeedback(`${name} is typing...`);
+    const gt = localStorage.getItem('gt');
+    sendFeedback(`${NameUser} is typing...`);
   };
 
   return (

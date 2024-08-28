@@ -1,9 +1,19 @@
 const express = require('express');
 const cors = require('cors');
+const connectDb = require('./config');
+const multer = require('multer');
 require('dotenv').config();
-
 const app = express();
-app.use(cors()); // Enable CORS for all routes
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+connectDb().then(() => {  
+//     app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));                     
+}).catch(error => { 
+    console.error("Failed to connect to MongoDB:", error);
+});     
+
 
 app.get('/', (req, res) => {
     res.status(200).send("Hello server");
@@ -19,12 +29,8 @@ const io = require('socket.io')(server, {
         methods: ['GET', 'POST']
     }
 });
-
 let socketConnected = new Map();
-
-
 io.on('connection', onConnection);
-
 function onConnection(socket) {
     console.log("New user ", socket.id);
     socketConnected.set(socket.id);
@@ -70,3 +76,11 @@ function onConnection(socket) {
     });
     console.log(socketConnected);
 }
+
+
+app.use('/api/saveName',require('./routes/User.route'));
+
+app.get('/api/connected-users', (req, res) => {
+    const connectedUsers = Array.from(socketConnected.keys()); // Get all userIds
+    res.json({ connectedUsers });
+});

@@ -1,0 +1,28 @@
+.full_page{
+    background-color: rgb(75, 84, 88);
+    height: 100vh;
+}
+button{
+    background-color:  rgb(75, 84, 88);
+    transition: 1s;
+}
+button:hover{
+    background-color: gray;
+}
+li{
+    text-decoration: none;
+    color: white;
+}
+.name_row{
+    height: 4rem;
+    text-align: center;
+    text-decoration: none;
+    list-style: none;
+    color: white;
+    font-size: 22px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: 1px solid rgba(67, 54, 54, 0.948);
+}
+.col1{
+    margin-left: 3rem;
+}
