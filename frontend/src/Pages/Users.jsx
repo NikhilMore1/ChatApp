@@ -114,9 +114,6 @@ const Users = () => {
                             <div className="row name_row" key={item.id}> 
                                 <button>
                                     <Link to={`/ChatApp/${item.name}`}>
-                                    {
-                                        localStorage.setItem('gt',item.name)
-                                    }
                                         <li>{item.name}</li> 
                                     </Link>
                                 </button>

@@ -96,14 +96,14 @@ const socket = io('http://localhost:5000/'); // Connect to your backend URL
 const Chat = () => {
   const { recipientId } = useParams(); // Get recipientId from URL parameters
   const Names = localStorage.getItem("name");
-  const [name, setName] = useState(Names);
+  const [name, setName] = useState(Names[recipientId]);
   const [messages, setMessages] = useState([]);
   const [clientsTotal, setClientsTotal] = useState(0);
   const [feedback, setFeedback] = useState('');
   const [recipientName, setRecipientName] = useState(''); // State to store recipient's name
 
   useEffect(() => {
-    socket.emit('register', name); // Register user with the server
+    socket.emit('register', Names); // Register user with the server
 
     socket.on('client-total', (data) => {
       setClientsTotal(data);
@@ -145,6 +145,8 @@ const Chat = () => {
     const data = { recipientId, message }; // Send message to the specific recipient
     socket.emit('private_message', data);
     setMessages((prevMessages) => [...prevMessages, { message, senderId: 'You', isOwnMessage: true }]);
+    // console.log("message",message);
+    
     setFeedback('');
   };
 
@@ -158,7 +160,7 @@ const Chat = () => {
         <div className="row">
           <div className="col" style={{ textAlign: 'center' }}>
             <h3 className="clients-total">Total users: {clientsTotal}</h3>
-            <h4>Chatting with: {recipientName}</h4> {/* Display recipient's name */}
+            <h4>Chatting with: {recipientId}</h4> {/* Display recipient's name */}
           </div>
         </div>
 
@@ -181,3 +183,7 @@ const Chat = () => {
 };
 
 export default Chat;
+
+
+
+
