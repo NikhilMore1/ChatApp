@@ -90,6 +90,7 @@ import Feedback from './Feedback';
 import './MessageForm.css';
 import './ChatPage.css';
 import { useParams } from 'react-router-dom'; // Import useParams
+import FilesHandle from './FilesHandle';
 
 const socket = io('http://localhost:5000/'); // Connect to your backend URL
 
@@ -137,16 +138,64 @@ const Chat = () => {
     };
   }, [name, recipientId]);
 
+  // const sendMessage = (message) => {
+  //   if (!recipientId) {
+  //     console.error('No recipient ID provided');
+  //     return;
+  //   }
+  //   const data = { recipientId, message }; // Send message to the specific recipient
+  //   socket.emit('private_message', data);
+  //   setMessages((prevMessages) => [...prevMessages, { message, senderId: 'You', isOwnMessage: true }]);
+  //   // console.log("message",message);
+    
+  //   setFeedback('');
+  // };
+
+
   const sendMessage = (message) => {
     if (!recipientId) {
       console.error('No recipient ID provided');
       return;
     }
-    const data = { recipientId, message }; // Send message to the specific recipient
-    socket.emit('private_message', data);
-    setMessages((prevMessages) => [...prevMessages, { message, senderId: 'You', isOwnMessage: true }]);
-    // console.log("message",message);
-    
+  
+    if (typeof message === 'string') {
+      // Handle text message
+      const data = { recipientId, message };
+      socket.emit('private_message', data);
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        { message, senderId: 'You', isOwnMessage: true }
+      ]);
+    } else if (message instanceof File) {
+      // Handle file upload
+      const formData = new FormData();
+      formData.append('file', message);
+      formData.append('recipientId', recipientId);
+  
+      // Example: Upload file to server using fetch or axios
+      fetch('/upload', {
+        method: 'POST',
+        body: formData,
+      })
+        .then(response => response.json())
+        .then(data => {
+          // Handle successful file upload
+          const fileMessage = {
+            message: data.fileUrl, // Assuming the server returns the file URL
+            senderId: 'You',
+            isOwnMessage: true,
+            isFile: true
+          };
+          setMessages((prevMessages) => [...prevMessages, fileMessage]);
+          socket.emit('private_message', fileMessage);
+        })
+        .catch(error => {
+          console.error('File upload failed:', error);
+        });
+    } else {
+      console.error('Unsupported message type');
+    }
+  
     setFeedback('');
   };
 

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './MessageForm.css';
 import { useParams } from 'react-router-dom';
+import FilesHandle from './FilesHandle';
 
 const MessageForm = ({ sendMessage, sendFeedback }) => {
   const [message, setMessage] = useState('');
@@ -25,6 +26,7 @@ const MessageForm = ({ sendMessage, sendFeedback }) => {
       <div className='container-fluid msg-ff'>
         <div className='message-form-container'>
           <form className="message-form" onSubmit={handleSubmit}>
+          <div className="fileSend" style={{color:'black'}}><FilesHandle/>  </div>
             <input
               type="text"
               style={{ width: '70rem', height: '50px' }}
