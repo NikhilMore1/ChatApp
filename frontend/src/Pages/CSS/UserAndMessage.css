@@ -1,0 +1,18 @@
+.user-and-message-container {
+    display: flex;
+    height: 100vh; /* Full viewport height */
+  }
+  
+  .users-section {
+    width: 50%;
+    border-right: 1px solid #ccc;
+    padding: 10px;
+    overflow-y: auto;
+  }
+  
+  .chat-section {
+    width: 50%;
+    padding: 10px;
+    overflow-y: auto;
+  }
+  

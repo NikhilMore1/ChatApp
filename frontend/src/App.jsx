@@ -6,6 +6,10 @@ import MainPage from "./Entrys/MainPage";
 import MessageItem from "./Chats/MessageItem";
 import Users from "./Pages/Users";
 import Chat from "./Chats/ChatApp";
+import UserAndMessage from "./Pages/UserAndMessage";
+import Navbar from "./Pages/Navbar";
+import Navbars from "./Pages/Navbar";
+import WelcomeNav from "./Pages/WelcomeNav";
 function App() {
 
   return (
@@ -15,6 +19,9 @@ function App() {
   <Route path="/" element={<Home/>}/>
   <Route path="/ChatApp/:recipientId" element={<Chat />} />
   <Route path="/Users" element={<Users/>}/>
+  <Route path="/UserAndMessage" element={<UserAndMessage/>}/>
+  <Route path="/Navbar" element={<Navbars/>}/>
+  <Route path="/WelcomeNav" element={<WelcomeNav/>}/>
 </Routes>
 </BrowserRouter>
  </div>

@@ -150,7 +150,7 @@ const Chat = () => {
     
   //   setFeedback('');
   // };
-
+ 
 
   const sendMessage = (message) => {
     if (!recipientId) {
@@ -208,21 +208,10 @@ const Chat = () => {
       <div className="chat">
         <div className="row">
           <div className="col" style={{ textAlign: 'center' }}>
-            <h3 className="clients-total">Total users: {clientsTotal}</h3>
-            <h4>Chatting with: {recipientId}</h4> {/* Display recipient's name */}
+            {/* <h3 className="clients-total">Total users: {clientsTotal}</h3> */}
+            <p className='user_name'>{recipientId}</p> {/* Display recipient's name */}
           </div>
         </div>
-
-        <div>
-          <label>Recipient ID: </label>
-          <input
-            type="text"
-            placeholder="Enter recipient's ID"
-            value={recipientId}
-            readOnly // Make input read-only if recipientId is provided via URL
-          />
-        </div>
-
         <MessageList messages={messages} />
         <Feedback feedback={feedback} />
         <MessageForm sendMessage={sendMessage} sendFeedback={sendFeedback} name={name} />

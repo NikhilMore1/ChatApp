@@ -4,8 +4,18 @@ const connectDb = require('./config');
 const multer = require('multer');
 require('dotenv').config();
 const app = express();
+const cloudinary = require('cloudinary');
 app.use(cors());
 app.use(express.json());
+var Namec = 'dkfakg7mw'; 
+var key = '472725881526577';   
+var sec = 'j5oQTkwakGjAq8jLCcDGiO2s7jM';  
+cloudinary.config({ 
+    cloud_name: Namec,  
+    api_key: key,      
+    api_secret:sec
+}); 
+     
 app.use(express.urlencoded({ extended: true }));
 connectDb().then(() => {  
 //     app.use(bodyParser.json());
@@ -28,7 +38,7 @@ const io = require('socket.io')(server, {
         origin: 'http://localhost:5173', // Replace with your frontend URL
         methods: ['GET', 'POST']
     }
-});
+}); 
 let socketConnected = new Map();
 io.on('connection', onConnection);
 function onConnection(socket) {
@@ -49,7 +59,7 @@ function onConnection(socket) {
                 message,
                 senderId: socket.id,
             });
-            console.log(`Message sent from ${socket.id} to ${recipientId}`);
+            console.log(`Message sent from ${recipientId} to ${recipientId}`);
         } else {
             console.log('Recipient not found or not connected');
         }
@@ -77,10 +87,10 @@ function onConnection(socket) {
     console.log(socketConnected);
 }
 
-
+ 
 app.use('/api/saveName',require('./routes/User.route'));
 
 app.get('/api/connected-users', (req, res) => {
     const connectedUsers = Array.from(socketConnected.keys()); // Get all userIds
     res.json({ connectedUsers });
-});
+}); 

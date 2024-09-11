@@ -11,7 +11,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(34, 60, 87);
+    background-color: rgba(36, 35, 35, 0.47);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   }
 
@@ -71,7 +71,8 @@
   
   /* Message from other users (left-aligned) */
   .message-left {
-    background-color: #f1f1f1;
+    background-color: #303132;
+    color: white;
     align-self: flex-start;
     border-radius: 15px 15px 15px 0;
     text-align: left;
@@ -79,7 +80,7 @@
   
   /* Message from the current user (right-aligned) */
   .message-right {
-    background-color: #007bff;
+    background-color: #3373b4;
     color: white;
     align-self: flex-end;
     border-radius: 15px 15px 0 15px;
@@ -99,6 +100,7 @@
     height: 50px;
     border: 2px solid black;
     border-radius: 10px;
+    background-color: transparent;
     padding: 10px;
     box-sizing: border-box;
   }
@@ -114,7 +116,7 @@
   }
   
   .send-button:hover {
-    background-color: rgb(26, 26, 231);
+    background-color:transparent;
   }
   .message-form {
     position: fixed;
@@ -122,10 +124,24 @@
     left: 0;
     width: 100%;
     padding: 10px;
-    background-color: rgb(87, 163, 225);
+    background-color:rgb(204, 245, 239);
     border-top: 1px solid #ccc;
   }
   .feedback {
     margin-bottom: 10px;
     color: white;
   }
+  .user_name {
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    text-decoration: dotted;
+    background-color: #4e4f51;
+    margin: 10px auto; 
+    border: 1px solid white;
+    border-radius: 10px;
+    color: black;
+    font-size: 20px;
+    width: 20%;
+}

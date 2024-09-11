@@ -7,5 +7,4 @@ const Feedback = ({ feedback }) => {
     </li>
   ) : null;
 };
-
 export default Feedback;
